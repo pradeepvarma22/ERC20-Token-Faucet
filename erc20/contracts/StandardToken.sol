@@ -98,6 +98,10 @@ contract StandardToken is IERC20{
         to may or may not be dexCaller
 
         //caller must be spender   to address may or may not be spender address, from address must be owner
+-----------------------------------------------------
+    from  --> Approver or owner of balances
+    to --> Any address
+    spender --> msg.sender who calls the transferFrom
     */
     function transferFrom(address from, address to,uint256 amount) external returns (bool)
     {
