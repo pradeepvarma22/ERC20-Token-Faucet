@@ -3,7 +3,6 @@ pragma solidity ^ 0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-
 contract VarmaToken is ERC20{
 
     constructor() ERC20("Varma's Token","VARMA")
@@ -11,7 +10,6 @@ contract VarmaToken is ERC20{
         _mint(msg.sender, 100);        
     }
 }
-
 
 contract VarmaTokenFaucet is ERC20{
     event FaucetRequest(address indexed caller, uint256 tokenAmount);
