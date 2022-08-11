@@ -27,13 +27,13 @@ contract VarmaTokenFaucet is ERC20{
         require(allowedToWithdraw(msg.sender));
         _mint(msg.sender, tokenAmount);
         emit FaucetRequest(msg.sender, tokenAmount);
-        lastAccessTime[msg.sender] = 5 minutes;
+        lastAccessTime[msg.sender] = block.timestamp;
         return true;
     }
 
     function allowedToWithdraw(address _to) internal view returns(bool)
     {
-        if(block.timestamp >= lastAccessTime[_to] || lastAccessTime[_to] ==0 )
+        if(block.timestamp >= lastAccessTime[_to] + 300 || lastAccessTime[_to] ==0 )    //300 refers to 5 min in seconds
         {
             return true;
         }
